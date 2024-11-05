@@ -2,7 +2,7 @@
 
 ## Credit Card Payment Service
 
-### Request Payload
+### Request Payload - Success Scenario
 ```
 {
   "creditCard": {
@@ -16,6 +16,23 @@
   "merchant_name": "Example Store",
   "timestamp": "2023-11-10T12:30:00Z",
   "order_reference":"123568976514651"
+}
+```
+
+### Request Payload - Error Scenario
+```
+{
+  "creditCard": {
+    "number": "1234-5678-9012-3455",
+    "expirationDate": "12/23",
+    "cvv": "456"
+  },
+  "amount": 90.00,
+  "currency": "USD",
+  "merchant_id": "MERCHANT789",
+  "merchant_name": "Example Store1",
+  "timestamp": "2023-11-10T12:30:00Z",
+  "order_reference":"123568976504651"
 }
 ```
 
