@@ -58,7 +58,7 @@ curl -X 'POST' \
 }'
 ```
 
-### Sample Response
+### Sample Response - Success Scenario
 ```
 {
   "status": "success",
@@ -66,5 +66,17 @@ curl -X 'POST' \
   "transactionId": "TXN123456789",
   "amount": "100.0",
   "currency": "USD"
+}
+```
+
+### Sample Response - Error Scenario
+```
+{
+  "status": "failure",
+  "message": "Payment failed. Insufficient funds.",
+  "error": {
+    "code": "INSUFFICIENT_FUNDS",
+    "description": "The account has insufficient funds to process the payment."
+  }
 }
 ```
