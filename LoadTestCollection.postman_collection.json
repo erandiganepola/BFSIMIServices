@@ -1,0 +1,92 @@
+{
+	"info": {
+		"_postman_id": "581f7add-d776-4105-b9c6-649124f0c80a",
+		"name": "Load Test Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3739833"
+	},
+	"item": [
+		{
+			"name": "Successful Payment Request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "eyJraWQiOiJnYXRld2F5X2NlcnRpZmljYXRlX2FsaWFzIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJjZWM1OWJhNS00ODA5LTRiM2EtYWE2My0wNzlhM2NiNjc3NGRAY2FyYm9uLnN1cGVyIiwiYXVkIjoiY2hvcmVvOmRlcGxveW1lbnQ6c2FuZGJveCIsImlzcyI6Imh0dHBzOlwvXC9zdHMuY2hvcmVvLmRldjo0NDNcL2FwaVwvYW1cL3B1Ymxpc2hlclwvdjJcL2FwaXNcL2ludGVybmFsLWtleSIsImtleXR5cGUiOiJTQU5EQk9YIiwic3Vic2NyaWJlZEFQSXMiOlt7InN1YnNjcmliZXJUZW5hbnREb21haW4iOm51bGwsIm5hbWUiOiJDQ1BheW1lbnRTZXJ2aWNlIC0gQ3JlZGl0Q2FyZFBheW1lbnRBUEkgN2JjIiwiY29udGV4dCI6IlwvYjQ4Y2M5M2UtZmEzMy00NDIwLWExNTUtYmM2NTNiNGQ0NmJlXC9iZnNpYmFja2VuZHNcL2NjcGF5bWVudHNlcnZpY2VcL3YxLjAiLCJwdWJsaXNoZXIiOiJjaG9yZW9fcHJvZF9hcGltX2FkbWluIiwidmVyc2lvbiI6InYxLjAiLCJzdWJzY3JpcHRpb25UaWVyIjpudWxsfV0sImV4cCI6MTczMDgyNjAyNywidG9rZW5fdHlwZSI6IkludGVybmFsS2V5IiwiaWF0IjoxNzMwODI1NDI3LCJqdGkiOiI2NTEzMDc2ZS1hOGRlLTQ3MzktYjk3OS1mYzk2NGUyMTAyZjkifQ.EYcMb0JbevqcXDLm18FlEvkpShzCdLs9ANt8fgB_Q49ygna7RlncVWaR5rqg7Fda0YF4YTToF9Z6DxgwidYG9n3jLSgMTmawI-LnL9OWbJpAW0coB4KQRw16Q67JNm0dw5GZ1O-Emd59hqaZyKJU-0nkw9FOQtDTcj17pkxM1pggGdL4MBFp0jFot3j8pvDSRdU71b5ZxTU8S97FmU62XBlrrgQkaEu_aoNvoar4eD5VQ9sfDJfIM9chVXt77EwtNApsJwLptCmaHymILpBjymx9cD8w8iw07SU2xEVAndl3LghlrZvkXf-8CVlXRzeVbaQduel87ijSbgpGF7X5o7BfyOX6VW741d7_R9RH-f_gL_7_TLKpwZ8cBU-_bQVdJ-oeVSwAaLvQchaGBz66iGla1rsVDoJjAbvNc7pO5CDYaMOlnoHwCHkFfOYnVURIaAhpBathqiu1QBkoHFMuQjNxtlHTOGcM87xJTh6tuYthzHklZ2-uRweU9H0TUeY4jAyKPyUv9YAQFoBXSJ99yWqxuiw9vcpdZfiMRA7A__739WiyRuSjTLkdd8rNS9nBR03DN90VFmn3R2fFllbTGE2EO8vZ8fWA4nks__ssdufIWe1ZMNsNfK_F3pqwmIlkHiTWlYujVu2PGlWtLSQ2MJJb1JaoP02ozi1wupisolY"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"creditCard\": {\n        \"number\": \"1234-5678-9012-3456\",\n        \"expirationDate\": \"12/24\",\n        \"cvv\": \"123\"\n    },\n    \"amount\": 100.0,\n    \"currency\": \"USD\",\n    \"merchant_id\": \"MERCHANT123\",\n    \"merchant_name\": \"Example Store\",\n    \"timestamp\": \"2023-11-10T12:30:00Z\",\n    \"order_reference\": \"123568976514651\"\n}"
+				},
+				"url": {
+					"raw": "https://b48cc93e-fa33-4420-a155-bc653b4d46be-my-env.e1-us-east-azure.choreoapis.dev/bfsibackends/ccpaymentservice/v1.0/payment",
+					"protocol": "https",
+					"host": [
+						"b48cc93e-fa33-4420-a155-bc653b4d46be-my-env",
+						"e1-us-east-azure",
+						"choreoapis",
+						"dev"
+					],
+					"path": [
+						"bfsibackends",
+						"ccpaymentservice",
+						"v1.0",
+						"payment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Error Payment Request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "api-key",
+						"value": "eyJraWQiOiJnYXRld2F5X2NlcnRpZmljYXRlX2FsaWFzIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJjZWM1OWJhNS00ODA5LTRiM2EtYWE2My0wNzlhM2NiNjc3NGRAY2FyYm9uLnN1cGVyIiwiYXVkIjoiY2hvcmVvOmRlcGxveW1lbnQ6c2FuZGJveCIsImlzcyI6Imh0dHBzOlwvXC9zdHMuY2hvcmVvLmRldjo0NDNcL2FwaVwvYW1cL3B1Ymxpc2hlclwvdjJcL2FwaXNcL2ludGVybmFsLWtleSIsImtleXR5cGUiOiJTQU5EQk9YIiwic3Vic2NyaWJlZEFQSXMiOlt7InN1YnNjcmliZXJUZW5hbnREb21haW4iOm51bGwsIm5hbWUiOiJDQ1BheW1lbnRTZXJ2aWNlIC0gQ3JlZGl0Q2FyZFBheW1lbnRBUEkgN2JjIiwiY29udGV4dCI6IlwvYjQ4Y2M5M2UtZmEzMy00NDIwLWExNTUtYmM2NTNiNGQ0NmJlXC9iZnNpYmFja2VuZHNcL2NjcGF5bWVudHNlcnZpY2VcL3YxLjAiLCJwdWJsaXNoZXIiOiJjaG9yZW9fcHJvZF9hcGltX2FkbWluIiwidmVyc2lvbiI6InYxLjAiLCJzdWJzY3JpcHRpb25UaWVyIjpudWxsfV0sImV4cCI6MTczMDgyNjAyNywidG9rZW5fdHlwZSI6IkludGVybmFsS2V5IiwiaWF0IjoxNzMwODI1NDI3LCJqdGkiOiI2NTEzMDc2ZS1hOGRlLTQ3MzktYjk3OS1mYzk2NGUyMTAyZjkifQ.EYcMb0JbevqcXDLm18FlEvkpShzCdLs9ANt8fgB_Q49ygna7RlncVWaR5rqg7Fda0YF4YTToF9Z6DxgwidYG9n3jLSgMTmawI-LnL9OWbJpAW0coB4KQRw16Q67JNm0dw5GZ1O-Emd59hqaZyKJU-0nkw9FOQtDTcj17pkxM1pggGdL4MBFp0jFot3j8pvDSRdU71b5ZxTU8S97FmU62XBlrrgQkaEu_aoNvoar4eD5VQ9sfDJfIM9chVXt77EwtNApsJwLptCmaHymILpBjymx9cD8w8iw07SU2xEVAndl3LghlrZvkXf-8CVlXRzeVbaQduel87ijSbgpGF7X5o7BfyOX6VW741d7_R9RH-f_gL_7_TLKpwZ8cBU-_bQVdJ-oeVSwAaLvQchaGBz66iGla1rsVDoJjAbvNc7pO5CDYaMOlnoHwCHkFfOYnVURIaAhpBathqiu1QBkoHFMuQjNxtlHTOGcM87xJTh6tuYthzHklZ2-uRweU9H0TUeY4jAyKPyUv9YAQFoBXSJ99yWqxuiw9vcpdZfiMRA7A__739WiyRuSjTLkdd8rNS9nBR03DN90VFmn3R2fFllbTGE2EO8vZ8fWA4nks__ssdufIWe1ZMNsNfK_F3pqwmIlkHiTWlYujVu2PGlWtLSQ2MJJb1JaoP02ozi1wupisolY"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"creditCard\": {\n        \"number\": \"1234-5678-9012-3455\",\n        \"expirationDate\": \"12/23\",\n        \"cvv\": \"456\"\n    },\n    \"amount\": 90.0,\n    \"currency\": \"USD\",\n    \"merchant_id\": \"MERCHANT789\",\n    \"merchant_name\": \"Example Store1\",\n    \"timestamp\": \"2023-11-10T12:30:00Z\",\n    \"order_reference\": \"123568976504651\"\n}"
+				},
+				"url": {
+					"raw": "https://b48cc93e-fa33-4420-a155-bc653b4d46be-my-env.e1-us-east-azure.choreoapis.dev/bfsibackends/ccpaymentservice/v1.0/payment",
+					"protocol": "https",
+					"host": [
+						"b48cc93e-fa33-4420-a155-bc653b4d46be-my-env",
+						"e1-us-east-azure",
+						"choreoapis",
+						"dev"
+					],
+					"path": [
+						"bfsibackends",
+						"ccpaymentservice",
+						"v1.0",
+						"payment"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
