@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <endpoint name="CoreBankAuthEP" xmlns="http://ws.apache.org/ns/synapse">
-    <http method="post" uri-template="https://b48cc93e-fa33-4420-a155-bc653b4d46be-my-env.e1-us-east-azure.choreoapis.dev/bfsibackends/corebankingbeservice/v1.0/cc/auth">
+    <http method="post" uri-template="{uri.var.coreBankAuthUrl}">
         <suspendOnFailure>
             <initialDuration>-1</initialDuration>
             <progressionFactor>1.0</progressionFactor>

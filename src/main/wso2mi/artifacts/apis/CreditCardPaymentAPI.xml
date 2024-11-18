@@ -13,13 +13,13 @@
             </propertyGroup>
             <payloadFactory media-type="json">
                 <format>{&#xd;
-  "merchant_id": "$1",&#xd;
-  "amount": "$2",&#xd;
-  "currency": "$3",&#xd;
-  "card_number": "$4",&#xd;
-  "expiry_date": "$5",&#xd;
-  "cvv": "$6"&#xd;
-}</format>
+                    "merchant_id": "$1",&#xd;
+                    "amount": "$2",&#xd;
+                    "currency": "$3",&#xd;
+                    "card_number": "$4",&#xd;
+                    "expiry_date": "$5",&#xd;
+                    "cvv": "$6"&#xd;
+                    }</format>
                 <args>
                     <arg evaluator="xml" expression="get-property('merchantId')"/>
                     <arg evaluator="xml" expression="get-property('amount')"/>
@@ -29,6 +29,10 @@
                     <arg evaluator="xml" expression="get-property('cvv')"/>
                 </args>
             </payloadFactory>
+            <property name="uri.var.frmFrauderyUrl" scope="default" type="STRING" expression="get-property('system', 'frmFrauderyUrl')"/>
+            <log category="INFO" level="custom">
+                <property name="Fraudery URL" expression="get-property('uri.var.frmFrauderyUrl')"/>
+            </log>
             <call>
                 <endpoint key="FRMFrauderyEP"/>
             </call>
@@ -43,8 +47,8 @@
                     <log level="full"/>
                     <payloadFactory media-type="json">
                         <format>{"status":"$1",&#xd;
-"message":"$2",&#xd;
-"reason":"$3"}</format>
+                            "message":"$2",&#xd;
+                            "reason":"$3"}</format>
                         <args>
                             <arg evaluator="xml" expression="get-property('statusFRM')"/>
                             <arg evaluator="xml" expression="get-property('messageFRM')"/>
@@ -55,6 +59,10 @@
                 </then>
                 <else>
                     <log level="full"/>
+                    <property name="uri.var.coreBankAuthUrl" expression="get-property('system', 'coreBankAuthUrl')" scope="default" type="STRING"/>
+                    <log category="INFO" level="custom">
+                        <property name="CoreBanking URL" expression="get-property('uri.var.coreBankAuthUrl')"/>
+                    </log>
                     <call>
                         <endpoint key="CoreBankAuthEP"/>
                     </call>
@@ -71,14 +79,14 @@
                             <log/>
                             <payloadFactory media-type="json">
                                 <format>{&#xd;
-    "from": "bankingdemopoc@gmail.com",&#xd;
-    "to": "$4",&#xd;
-    "cc": "bankingdemopoc@gmail.com",&#xd;
-    "subject": "Payment failed",&#xd;
-    "content": "Transaction ID $1. $2 $3",&#xd;
-    "contentType":"text/plain"&#xd;
-    &#xd;
-}</format>
+                                    "from": "bankingdemopoc@gmail.com",&#xd;
+                                    "to": "$4",&#xd;
+                                    "cc": "bankingdemopoc@gmail.com",&#xd;
+                                    "subject": "Payment failed",&#xd;
+                                    "content": "Transaction ID $1. $2 $3",&#xd;
+                                    "contentType":"text/plain"&#xd;
+                                    &#xd;
+                                    }</format>
                                 <args>
                                     <arg evaluator="xml" expression="get-property('transIdCBS')"/>
                                     <arg evaluator="xml" expression="get-property('messageCBS')"/>
@@ -96,13 +104,13 @@
                             </email.send> -->
                             <payloadFactory media-type="json">
                                 <format>{&#xd;
-  "status": "failure",&#xd;
-  "message": "Payment failed. Insufficient funds.",&#xd;
-  "error": {&#xd;
-    "code": "INSUFFICIENT_FUNDS",&#xd;
-    "description": "The account has insufficient funds to process the payment."&#xd;
-  }&#xd;
-}</format>
+                                    "status": "failure",&#xd;
+                                    "message": "Payment failed. Insufficient funds.",&#xd;
+                                    "error": {&#xd;
+                                    "code": "INSUFFICIENT_FUNDS",&#xd;
+                                    "description": "The account has insufficient funds to process the payment."&#xd;
+                                    }&#xd;
+                                    }</format>
                                 <args/>
                             </payloadFactory>
                         </then>
@@ -110,13 +118,13 @@
                             <log/>
                             <payloadFactory media-type="json">
                                 <format>{&#xd;
-    "from": "bankingdemopoc@gmail.com",&#xd;
-    "to": "bankingdemopoc@gmail.com",&#xd;
-    "subject": "Payment successful",&#xd;
-    "content": "Transaction ID $1. $2",&#xd;
-    "contentType":"text/plain"&#xd;
-    &#xd;
-}</format>
+                                    "from": "bankingdemopoc@gmail.com",&#xd;
+                                    "to": "bankingdemopoc@gmail.com",&#xd;
+                                    "subject": "Payment successful",&#xd;
+                                    "content": "Transaction ID $1. $2",&#xd;
+                                    "contentType":"text/plain"&#xd;
+                                    &#xd;
+                                    }</format>
                                 <args>
                                     <arg evaluator="xml" expression="get-property('transIdCBS')"/>
                                     <arg evaluator="xml" expression="get-property('messageCBS')"/>
@@ -131,12 +139,12 @@
                             </email.send> -->
                             <payloadFactory media-type="json">
                                 <format>{&#xd;
-  "status": "success",&#xd;
-  "message": "Payment successful",&#xd;
-  "transactionId": "$1",&#xd;
-  "amount": "$2",&#xd;
-  "currency": "$3"&#xd;
-}</format>
+                                    "status": "success",&#xd;
+                                    "message": "Payment successful",&#xd;
+                                    "transactionId": "$1",&#xd;
+                                    "amount": "$2",&#xd;
+                                    "currency": "$3"&#xd;
+                                    }</format>
                                 <args>
                                     <arg evaluator="xml" expression="get-property('transIdCBS')"/>
                                     <arg evaluator="xml" expression="get-property('amount')"/>
