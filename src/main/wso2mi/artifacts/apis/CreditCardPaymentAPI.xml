@@ -29,10 +29,6 @@
                     <arg evaluator="xml" expression="get-property('cvv')"/>
                 </args>
             </payloadFactory>
-            <property name="uri.var.frmFrauderyUrl" scope="default" type="STRING" expression="get-property('system', 'frmFrauderyUrl')"/>
-            <log category="INFO" level="custom">
-                <property name="Fraudery URL" expression="get-property('uri.var.frmFrauderyUrl')"/>
-            </log>
             <call>
                 <endpoint key="FRMFrauderyEP"/>
             </call>
@@ -59,10 +55,6 @@
                 </then>
                 <else>
                     <log level="full"/>
-                    <property name="uri.var.coreBankAuthUrl" expression="get-property('system', 'coreBankAuthUrl')" scope="default" type="STRING"/>
-                    <log category="INFO" level="custom">
-                        <property name="CoreBanking URL" expression="get-property('uri.var.coreBankAuthUrl')"/>
-                    </log>
                     <call>
                         <endpoint key="CoreBankAuthEP"/>
                     </call>
