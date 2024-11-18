@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <endpoint name="FRMFrauderyEP" xmlns="http://ws.apache.org/ns/synapse">
-    <http method="post" uri-template="{uri.var.frmFrauderyUrl}">
+    <http method="post" uri-template="$SYSTEM:frmFrauderyUrl">
         <suspendOnFailure>
             <initialDuration>-1</initialDuration>
             <progressionFactor>1</progressionFactor>
