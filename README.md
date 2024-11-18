@@ -2,6 +2,13 @@
 
 ## Credit Card Payment Service
 
+### Setup Env Variables
+````
+FRMFRAUDERYURL = "https://b48cc93e-fa33-4420-a155-bc653b4d46be-my-env.e1-us-east-azure.choreoapis.dev/bfsibackends/frmbeservice/v1.0/validate"
+COREBANKAUTHURL = "https://b48cc93e-fa33-4420-a155-bc653b4d46be-my-env.e1-us-east-azure.choreoapis.dev/bfsibackends/corebankingbeservice/v1.0/cc/auth"
+````
+
+
 ### Request Payload - Success Scenario
 ```
 {
