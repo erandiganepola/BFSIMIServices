@@ -1,0 +1,13 @@
+<!-- Local Entry for Email Connector -->
+<localEntry key="EmailConnectorConfig" xmlns="http://ws.apache.org/ns/synapse">
+    <email.init>
+        <connectionType>SMTPS</connectionType>
+        <host>smtp.gmail.com</host>
+        <port>465</port>
+        <username>erandiganepola@gmail.com</username>
+        <password>lfvhyfbqrfjhahfe</password>
+        <name>EmailConnectorConfig</name>
+        <!-- <requireTLS>true</requireTLS>
+        <requireAuthentication>true</requireAuthentication> -->
+    </email.init>
+</localEntry>
