@@ -2,12 +2,12 @@
 <localEntry key="EmailConnectorConfig" xmlns="http://ws.apache.org/ns/synapse">
     <email.init>
         <connectionType>SMTPS</connectionType>
-        <host>smtp.gmail.com</host>
+        <host>sandbox.smtp.mailtrap.io</host>
         <port>465</port>
-        <username>erandiganepola@gmail.com</username>
-        <password>lfvhyfbqrfjhahfe</password>
+        <username>2c5e7e5eee3175</username>
+        <password>927e7102b9ef89</password>
         <name>EmailConnectorConfig</name>
-        <!-- <requireTLS>true</requireTLS>
-        <requireAuthentication>true</requireAuthentication> -->
+        <requireTLS>true</requireTLS>
+        <requireAuthentication>true</requireAuthentication>
     </email.init>
 </localEntry>
