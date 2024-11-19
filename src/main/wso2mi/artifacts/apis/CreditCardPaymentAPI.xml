@@ -60,6 +60,17 @@
             <filter regex="declined" source="get-property('statusFRM')">
                 <then>
                     <log level="full"/>
+                    <email.send configKey="EmailConnectorConfig">
+                        <from>no-reply@wso2.com</from>
+                        <personalName>Alterna Cards</personalName>
+                        <to>erandi@wso2.com</to>
+                        <subject>Transaction Declined</subject>
+                        <content>Dear Customer, your transaction has been declined.</content>
+                        <contentType>text/plain</contentType>
+                        <inlineImages>[]</inlineImages>
+                        <encoding>UTF-8</encoding>
+                        <contentTransferEncoding>Base64</contentTransferEncoding>
+                    </email.send>
                     <payloadFactory media-type="json">
                         <format>{"status":"$1",&#xd;
                             "message":"$2",&#xd;
