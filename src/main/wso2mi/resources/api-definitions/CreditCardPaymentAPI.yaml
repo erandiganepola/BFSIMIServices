@@ -6,6 +6,17 @@ info:
 servers:
 - url: http://localhost:8290/creditCard
 paths:
+  /creditRating/{user_id}:
+    get:
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: Default response
   /payment:
     post:
       requestBody:

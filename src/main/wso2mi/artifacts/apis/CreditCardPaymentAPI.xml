@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <api context="/creditCard" name="CreditCardPaymentAPI" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET" uri-template="/creditRating/{user_id}">
+        <inSequence>
+            <log level="custom">
+                <property name="message" value="Fetching credit rating for user"/>
+            </log>
+            <!-- Extract user_id from the path parameter and set it as a property -->
+            <property expression="get-property('uri.var.user_id')" name="userId" scope="default" type="STRING"/>
+            <!-- Set the extracted user_id to the endpoint property to be used in the URI template -->
+            <property name="uri.var.userId" expression="get-property('userId')" scope="default" type="STRING"/>
+            <call>
+                <endpoint key="CoreBankingCreditRatingEP"/>
+            </call>
+            <respond/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <sequence key="FaultSequence"/>
+        </faultSequence>
+    </resource>
     <resource methods="POST" uri-template="/payment">
         <inSequence>
             <log level="full"/>
