@@ -54,8 +54,20 @@ curl -X 'GET' \
   "timestamp": "2023-11-10T12:30:00Z"
 }
 ```
+#### Request Payload - Fraudery Detected
+```
+{
+  "merchant_id": "MERCHANT678",
+  "amount": 150.00,
+  "currency": "USD",
+  "card_number": "1234-5678-9012-3890",
+  "expiry_date": "12/23",
+  "cvv": "678",
+  "timestamp": "2023-11-10T12:30:00Z"
+}
+```
 
-#### Request Payload - Error Scenario
+#### Request Payload - Failed Scenario
 ```
 {
   "merchant_id": "MERCHANT789",
@@ -97,10 +109,19 @@ curl -X 'POST' \
 }
 ```
 
-#### Sample Response - Error Scenario
+#### Sample Response - Fraudery Detected Scenario
+```
+{
+    "status": "declined",
+    "message": "Transaction declined. High-risk indicators detected.",
+    "reason": "Unusual spending pattern"
+}
+```
+
+#### Sample Response - Failed Scenario
 ```
 {
   "status": "Declined",
-  "message": "Payment declined"
+  "message": "Payment declined. Insufficient balance."
 }
 ```
