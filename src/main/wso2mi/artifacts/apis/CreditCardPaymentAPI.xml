@@ -100,7 +100,7 @@
                                 <contentTransferEncoding>Base64</contentTransferEncoding>
                             </email.send>
                             <payloadFactory media-type="json">
-                                <format>{"status":"Declined","message":"Payment declined"}</format>
+                                <format>{"status":"Declined","message":"Payment declined. Insufficient balance."}</format>
                                 <args>
                                     <arg evaluator="xml" expression="get-property('reasonFRM')"/>
                                 </args>
